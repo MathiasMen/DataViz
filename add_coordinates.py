@@ -15,13 +15,11 @@ with open(db_input_path) as infile:
         db_csv_out.writerow(["link", "address", "price", "additional_cost", "space","lat","lon"])
         counter = 0
         for row in db_csv:
-            if counter < 100:
-                coords = geo_locator.geocode(row[1])
-                if coords != None:
-                    lat = coords.latitude
-                    lon = coords.longitude
-                else:
-                    lat = ""
-                    lon = ""
-                db_csv_out.writerow([row[0],row[1],row[2],row[3],row[4],lat,lon])
-                counter += 1
+            coords = geo_locator.geocode(row[1])
+            if coords != None:
+                lat = coords.latitude
+                lon = coords.longitude
+            else:
+                lat = ""
+                lon = ""
+            db_csv_out.writerow([row[0],row[1],row[2],row[3],row[4],lat,lon])
