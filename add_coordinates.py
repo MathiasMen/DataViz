@@ -25,4 +25,3 @@ with open(db_input_path) as infile:
                     lon = ""
                 db_csv_out.writerow([row[0],row[1],row[2],row[3],row[4],lat,lon])
                 counter += 1
-                #time.sleep(1)
